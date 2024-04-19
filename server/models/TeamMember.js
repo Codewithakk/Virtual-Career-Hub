@@ -13,8 +13,12 @@ const teamMemberSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
-
+//   image:String
+// },
+// {
+//   collection:"ImageDetails",
+ }
+);
 const TeamMember = mongoose.model('TeamMember', teamMemberSchema);
 
 module.exports = TeamMember;

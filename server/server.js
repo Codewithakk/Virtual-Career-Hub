@@ -1,54 +1,12 @@
-// require("dotenv").config();
-// const express=require("express");
-// const cors=require("cors");
-// const app=express();
-// const authRoute=require("./router/auth-router");
-// const contactRoute=require("./router/contact-router");
-// const adminRoute=require("./router/admin-router");
-// //const jobportal=require("./router/jobportal");
-// const connectDb=require("./utils/db");
-// const errorMiddleware=require("./middlewares/error-middleware");
-
-// const corsOptions ={
-//    origin:"http://localhost:5173",
-//    methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
-//    credential:true,
-// };
-// app.use(cors(corsOptions));
-
-// app.use(express.json());
-
-// //Routes
-// app.use("/api/auth",authRoute);
-// app.use("/api/form",contactRoute);
-// //app.use('/api/jobs',jobportal);
-// app.use("/api/admin",adminRoute);
-// //app.use("/api/company",jobportal);
-
-// app.use(errorMiddleware);
-// const Port=5000;
-// app.get("/",async(req,res)=>{
-//     res.send("<h1>Hello World!</h1>");
-// });
-// app.get("/register",async(req,res)=>{
-//     res.status('200').send("Welcome to Registration page");
-// });
-// app.get("/login",async(req,res)=>{
-//     res.status('200').send("Welcome to login page");
-// });
-// connectDb().then(()=>
-// {
-// app.listen(Port,()=>{
-//     console.log(`server is running at port: ${Port}`);
-//    });
-// });
-
-// app.js
-
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+// const multer=require( 'multer' );
+// const path=require('./uploads') ; 
+
+app.use(bodyParser.json());
 const authRoute = require('./router/auth-router');
 const contactRoute = require('./router/contact-router');
 const adminRoute = require('./router/admin-router');
@@ -67,6 +25,19 @@ const corsOptions = {
   methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
   credentials: true,
 };
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, path.join(__dirname, 'uploads')); // Uploads will be stored in the 'uploads' directory
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + '-' + file.originalname); // Unique filename to prevent overwriting
+//   }
+// });
+
+// // Multer upload configuration
+// const upload = multer({ storage: storage });
+
 
 // app.set('view engine', 'ejs');
 // app.use(expressLayouts);
@@ -87,6 +58,7 @@ app.use('/api/analytics', analyticsRoutes)
 app.use('/api/student', studentRoutes)
 
 
+
 app.use(errorMiddleware);
 
 const Port = 5000;
@@ -101,8 +73,6 @@ app.get('/register', async (req, res) => {
 app.get('/login', async (req, res) => {
   res.status(200).send('Welcome to login page');
 });
-
-
 
 connectDb().then(() => {
   app.listen(Port, () => {

@@ -1,35 +1,8 @@
-// import React from 'react';
-// import { NavLink} from "react-router-dom";
-// import { NavItem } from 'reactstrap';
-
-// const PlacementMaterialPage = () => {
-//   const navItemStyle = {
-//     width: '10%',
-//     // Add any additional styles as needed
-//   };
-
-//   return (
-//     <div className="placement-material-page">
-//       <h1>Placement Material</h1>
-//                 <NavItem>
-//                   <NavLink to="https://drive.google.com/drive/folders/1SkCOcAS0Kqvuz-MJkkjbFr1GSue6Ms6m?usp=drive_link"> Placement Data</NavLink>
-//                 </NavItem>
-//                 <NavItem>
-//                     <NavLink to="/admin/users">Users</NavLink>
-//                 </NavItem>
-//                 <NavItem>
-//                     <NavLink to="/admin/contacts">Contacts</NavLink>
-//                 </NavItem>
-//     </div>
-//   );
-// };
-
-// export default PlacementMaterialPage;
 import React, { useState } from 'react';
 import '../../elements/Sidebar.css';
 import Header from '../../elements/header';
 import { NavLink } from 'react-router-dom';
-
+import Placementdata from "../../Placementdata"
 function PlacementMaterialPage() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
@@ -42,9 +15,6 @@ function PlacementMaterialPage() {
       <Header openSidebarToggle={openSidebarToggle} toggleSidebar={toggleSidebar} />
       <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
         <div className='sidebar-title'>
-          {/* <div className='sidebar-brand'>
-            <BsCart3 className='icon_header' /> Placement Data
-          </div> */}
           <span className='icon close_icon' onClick={toggleSidebar}>X</span>
         </div>
 
@@ -55,27 +25,35 @@ function PlacementMaterialPage() {
             </NavLink>
           </li>
           <li className='sidebar-list-item'>
-            <NavLink to="">
-               Placement Data
+            <NavLink to="/Statistics">
+               Placement Statics
             </NavLink>
           </li>
           <li className='sidebar-list-item'>
             <NavLink to="">
-               Links 2
+               Tech videos
             </NavLink>
           </li>
           <li className='sidebar-list-item'>
             <NavLink to="">
-               Links 3
+               Trending Tech
             </NavLink>
           </li>
           <li className='sidebar-list-item'>
             <NavLink to="">
-               Links 4
+               Quize
             </NavLink>
           </li>
         </ul>
       </aside>
+      
+      {/* Conditionally render content */}
+      <div className={openSidebarToggle ? "content-container-shifted" : "content-container"}>
+        {/* Content for Placement Material page */}
+        <div className="placement-material-page-content">
+           <Placementdata/>
+        </div>
+      </div>
     </div>
   );
 }

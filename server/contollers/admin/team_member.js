@@ -11,13 +11,33 @@ exports.getTeamMembers = async (req, res) => {
 };
 
 // Add a new team member
-exports.addTeamMember = async (req, res) => {
+// exports.addTeamMember = async (req, res) => {
+//   const { name, position, bio, image } = req.body;
+//   try {
+//     const newMember = new TeamMember({
+//       name,
+//       position,
+//       bio,
+//       image
+//     });
+//     const savedMember = await newMember.save();
+//     res.status(201).json(savedMember);
+//   } catch (error) {
+//     res.status(400).json({ message: error.message });
+//   }
+// };
+
+// Add a new team member
+exports.addTeamMember =  async (req, res) => {
   const { name, position, bio } = req.body;
+  // const image = req.file.filename; // Multer will add a 'file' object to the request
+
   try {
     const newMember = new TeamMember({
       name,
       position,
-      bio
+      bio,
+      // image
     });
     const savedMember = await newMember.save();
     res.status(201).json(savedMember);
@@ -25,6 +45,7 @@ exports.addTeamMember = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
 
 // Update a team member
 exports.updateTeamMember = async (req, res) => {
@@ -34,7 +55,8 @@ exports.updateTeamMember = async (req, res) => {
     const updatedMember = await TeamMember.findByIdAndUpdate(memberId, {
       name,
       position,
-      bio
+      bio,
+      // image
     }, { new: true });
     res.json(updatedMember);
   } catch (error) {

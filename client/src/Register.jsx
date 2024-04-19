@@ -146,7 +146,7 @@ export default function Register() {
     const navigate = useNavigate();
     const { storeTokenInLS } = useAuth();
 
-    // Function to handle the input
+    // Function to handle the input  
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser((prevUser) => ({

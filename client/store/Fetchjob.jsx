@@ -76,7 +76,8 @@ function JobPage() {
       try {
         const response = await axios({
           method: 'GET',
-          url: 'https://jobs-api14.p.rapidapi.com/list',
+          // url: 'https://jobs-api14.p.rapidapi.com/list',
+            // url:'https://zobjobs.com/api/jobs',
           params: {
             query: searchQuery,
             location: location,

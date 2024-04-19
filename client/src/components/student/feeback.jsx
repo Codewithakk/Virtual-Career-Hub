@@ -30,7 +30,7 @@ const FeedbackForm = () => {
 
   return (
     <div className="feedback">
-      <img src="./src/assets/feedback.jpg" height= "400px" width="400px" alt="" />
+      <img src="./src/assets/feedback.jpg" height= "300px" width="400px" alt="" className='feedback_img'/>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>

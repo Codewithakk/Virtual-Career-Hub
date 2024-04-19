@@ -47,7 +47,7 @@ const Calendar = () => {
     return (
         <div>
             <h4>Calendar Events</h4>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='add-member'>
                 <input type="text" name="title" placeholder="Title" value={newEvent.title} onChange={handleChange} />
                 <input type="text" name="description" placeholder="Description" value={newEvent.description} onChange={handleChange} />
                 <input type="datetime-local" name="start" placeholder="Start" value={newEvent.start} onChange={handleChange} />

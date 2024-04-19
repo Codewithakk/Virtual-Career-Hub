@@ -9,6 +9,7 @@ const TeamMember = ({ name, position, bio }) => {
         <h3>{name}</h3>
         <p>{position}</p>
         <p>{bio}</p>
+        
       </div>
     </div>
   );

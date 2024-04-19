@@ -90,9 +90,19 @@ function Navbars(args) {
                         )}
                         {userRole === "admin" && (
                             <>
-                                <NavItem>
+                                {/* <NavItem>
                                     <NavLink tag={ReactLink} to="/admin" style={navItemStyle}>Admin Dashboard</NavLink>
-                                </NavItem>
+                                </NavItem> */}
+                                 <Dropdown isOpen={dropdownOpen1} toggle={toggleDropdown1} onMouseEnter={handleDropdown1Enter} onMouseLeave={handleDropdown1Leave}>
+                                    <DropdownToggle tag={NavLink} caret style={navItemStyle}>
+                                        Admin Dashboard
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem tag={ReactLink} to="/admin">Admin Profile</DropdownItem>
+                                        <DropdownItem tag={ReactLink} to="/users">Users</DropdownItem>
+                                        <DropdownItem tag={ReactLink} to="/contacts">Contacts</DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
                                 <NavItem>
                                     <NavLink tag={ReactLink} to="/team_add" style={navItemStyle}>Team_Add</NavLink>
                                 </NavItem>
@@ -147,7 +157,7 @@ function Navbars(args) {
                        <li>
 
                         <NavItem>
-                            <NavLink tag={ReactLink} to="/processor" style={navItemStyle}>Processor</NavLink>
+                            <NavLink tag={ReactLink} to="/procedure" style={navItemStyle}>Procedure</NavLink>
                         </NavItem>
                        </li>
                        <li>

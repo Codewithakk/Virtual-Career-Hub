@@ -73,7 +73,7 @@ const RegistrationForm = () => {
     return (
       <div className='registration-form-container'>
       <h2>{isEditing ? 'Edit Registration' : 'Student Registration'}</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className="form-group">
           <label htmlFor="fullName">Full Name:</label>
           <input
@@ -300,15 +300,16 @@ const RegistrationForm = () => {
             value={formData.linkedInProfile}
             onChange={handleChange}
           />
-        </div>
+        </div><br />
         <div className="form-group">
                     {isEditing ? (
                         <button type="submit">Save Changes</button>
                     ) : (
-                        <>
-                            <button type="submit">Register</button>
+                        <div>
+                            <button type="button"  >Register</button> <br /><br/>
+    
                             <button type="button" onClick={handleEdit}>Edit</button>
-                        </>
+                        </div>
                     )}
                 </div>
             </form>

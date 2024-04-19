@@ -1,30 +1,51 @@
-import React from 'react';
-import { NavLink, Outlet} from 'react-router-dom';
-import { Nav, NavItem } from 'reactstrap';
-export default function Company_dashboard(){
-    return(
-        <div className="d-flex"> {/* Add flex container */}
-        <Nav vertical className="mr-auto"> {/* Add mr-auto to push nav to the left */}
-            <NavItem>
-                <NavLink to="/company/jobs">Post Job</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/company/jobs_view"> Job Posted</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/company/student_data">Student Data</NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink to="/company/JobDetailsPage">Job post2</NavLink>
-            </NavItem>
-        </Nav>
-        <div className="d-flex align-items-center justify-content-center flex-grow-1"> {/* Center content */}
-            <Outlet />
+import React, { useState } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import Header from '../../components/company/head'; // Assuming 'Header' component path
+
+import '../../elements/Sidebar.css';
+
+function Company_dashboard() {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+  const toggleSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
+
+  return (
+    <div className='grid-container'>
+      <Header openSidebarToggle={openSidebarToggle} toggleSidebar={toggleSidebar} />
+      <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""}>
+        <div className='sidebar-title'>
+          <span className='icon close_icon' onClick={toggleSidebar}>X</span>
         </div>
+
+        <ul className='sidebar-list'>
+          <li className='sidebar-list-item'>
+            <NavLink to="/company/jobs" activeClassName="active-link">
+              Job Post
+            </NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/company/jobs_view" activeClassName="active-link">Job Posted</NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/company/student_data" activeClassName="active-link">Student Applied</NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="" activeClassName="active-link">Selected Students</NavLink>
+          </li>
+        </ul>
+      </aside>
+      
+      {/* Conditionally render content */}
+      <div className={openSidebarToggle ? "content-container-shifted" : "content-container"}>
+      <main id='companycontent'>
+        <Outlet />
+      </main>
+                {/* Content for Outlet */}
+      </div>
     </div>
-    );
+  );
 }
-{/* <li> <NavLink to="/CompanyJobPostPage">Job_Post</NavLink></li>
-<li><NavLink to="/CompanyStudentManagementPage">Student_Details</NavLink></li>
-<li><NavLink to="/JobDetailsPage">Job_Post</NavLink></li>
-<li><NavLink to="/JobPostings">Job_Post</NavLink></li> */}
+
+export default Company_dashboard;

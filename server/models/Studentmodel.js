@@ -16,7 +16,9 @@
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
+
   fullName: { type: String, required: true },
+  // img: { data: Buffer, contentType: String },
   email: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   dateOfBirth: { type: Date, required: true },
@@ -32,7 +34,7 @@ const studentSchema = new mongoose.Schema({
   yearOfStudy: { type: Number, required: true },
   fieldOfStudy: { type: String, required: true },
   cgpaOrPercentage: { type: Number, required: true },
-  resume: { type: String }, // You may store the file path or use other methods to store files
+  resume: { type: String }, 
   technicalSkills: { type: [String] },
   softSkills: { type: [String] },
   workExperience: { type: String },
