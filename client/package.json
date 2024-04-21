@@ -32,6 +32,7 @@
     "react-toastify": "^10.0.4",
     "reactstrap": "^9.2.2",
     "recharts": "^2.12.3",
+    "use-history": "^1.4.1",
     "vite": "^5.1.4"
   },
   "devDependencies": {

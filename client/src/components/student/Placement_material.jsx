@@ -40,7 +40,7 @@ function PlacementMaterialPage() {
             </NavLink>
           </li>
           <li className='sidebar-list-item'>
-            <NavLink to="">
+            <NavLink to="/quiz">
                Quize
             </NavLink>
           </li>

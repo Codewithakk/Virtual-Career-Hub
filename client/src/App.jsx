@@ -52,6 +52,8 @@ import TrainingPage from './Placementdata';
 import QuizeHome from "./Pages/Home/HomeQuize";
 import Quiz from "./Pages/Quiz/Quiz";
 import Result from "./Pages/Result/Result";
+// import Header from './components/quize/Header/Header';
+import QuizPage from './Pages/Quizemain';
 
 
 function App() {
@@ -84,7 +86,6 @@ function App() {
   </Route>
       <Route path="/about" element={<About />} />
       <Route path="/recruiter" element={<Recruiter />} />
-      
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/admin_dashboard" element={<AdminDashboard />} /> */}
      
@@ -98,34 +99,61 @@ function App() {
       {/* student routing */}
       <Route path='/notifications' element={<Notification/>}/>
       <Route path='/student' element={<Student_dashboard/>}/>
-      <Route path='/placement_material' element={<Placement_material/>}>
+      <Route path='/placement_material' element={<Placement_material/>}/>
       {/* quize section */}
-            <div className="app" style={{ backgroundImage: 'url("/ques1.png")' }}>
-        <Header />
-        <Switch>
+            {/* <div className="app" style={{ backgroundImage: 'url("/ques1.png")' }}>
+        <Header /> */}
+        {/* <Switch>
           <Route path="/homepage" exact>
-            <QuizeHome
-              name={name}
-              setName={setName}
-              fetchQuestions={fetchQuestions}
-            />
+          <QuizeHome
+          name={name}
+          setName={setName}
+          fetchQuestions={fetchQuestions}
+          />
           </Route>
           <Route path="/quiz">
-            <Quiz
-              name={name}
-              questions={questions}
-              score={score}
-              setScore={setScore}
-              setQuestions={setQuestions}
-            />
+          <Quiz
+          name={name}
+          questions={questions}
+          score={score}
+          setScore={setScore}
+          setQuestions={setQuestions}
+          />
           </Route>
           <Route path="/result">
-            <Result name={name} score={score} />
+          <Result name={name} score={score} />
           </Route>
-        </Switch>
-      </div>
-
-      </Route>
+        </Switch> */}
+  <Route path='/quiz' element={<QuizPage/>}></Route>
+      
+  <Route
+    path="quiz/homepage"
+    element={
+      <QuizeHome
+        name={name}
+        setName={setName}
+        fetchQuestions={fetchQuestions}
+      />
+    }
+    exact
+  />
+  <Route
+    path="quiz/quiz"
+    element={
+      <Quiz
+        name={name}
+        questions={questions}
+        score={score}
+        setScore={setScore}
+        setQuestions={setQuestions}
+      />
+    }
+  />
+  <Route
+    path="quiz/result"
+    element={<Result name={name} score={score} />}
+  />
+      {/* </div> */}
       <Route path='/resume_builder' element={<Body/>} />   
       <Route path='/job_portal' element={<JobFetch />} />
       <Route path='/profile' element={<ProfilePagePage />} />
