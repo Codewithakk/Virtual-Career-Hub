@@ -11,11 +11,11 @@ import {
     NavItem,
     NavLink,
     NavbarText,
-    Dropdown, // Import Dropdown component
+    Dropdown, 
     DropdownToggle,
     DropdownMenu,
     DropdownItem
-} from 'reactstrap'; // Import Dropdown components from reactstrap
+} from 'reactstrap'; 
 
 function Navbars(args) {
     const [isOpen, setIsOpen] = useState(true);

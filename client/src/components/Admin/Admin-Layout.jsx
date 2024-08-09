@@ -30,6 +30,7 @@ export const AdminLayout = () => {
                 <NavItem>
                     <NavLink to="/admin/contacts"><FaMessage /> Contacts</NavLink>
                 </NavItem>
+               
             </Nav>
             <div className="d-flex align-items-center justify-content-center flex-grow-1"> {/* Center content */}
             <Analytics/>

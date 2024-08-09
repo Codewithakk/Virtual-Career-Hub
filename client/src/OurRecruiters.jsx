@@ -134,38 +134,6 @@ const PastRecruiters = props => {
         <div className="pr-inner-wrapper">
           <div className="pr-inner-box">
             <div className="pr-inner-row">
-              <img src={amazonLogo} alt="Amazon" />
-              <img src={flipkartLogo} alt="Flipkart" />
-              <img src={ecorp} alt="314ecorp" />
-              <img src={ackoLogo} alt="Acko" />
-              <img src={intelLogo} alt="Intel" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={americanExpressLogo} alt="American Express" />
-              <img src={amd} alt="AMD" />
-              <img src={bigbasket} alt="BigBasket" />
-              <img src={byjus} alt="Byjus" />
-              <img src={capdgeminiLogo} alt="Capgemini" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={codenationLogo} alt="Codenation" />
-              <img src={cognitio} alt="cognitio" />
-              <img src={cognizant} alt="Cognizant" />
-              <img src={cogoport} alt="Cogoport" />
-              <img src={accenture} alt="Accenture" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={albatronix} alt="Albatronix" />
-              <img src={cred} alt="Cred" />
-              <img src={darwinbox} alt="DarwinBox" />
-              <img src={deloitteLogo} alt="Deloitte" />
-              <img src={dolcera} alt="Dolcera" />
-            </div>
-
-            <div className="pr-inner-row">
               <img src={fis} alt="FIS" />
               <img src={gameskraftLogo} alt="Gameskraft" />
               <img src={ganit} alt="Ganit" />
@@ -181,13 +149,6 @@ const PastRecruiters = props => {
               <img src={innominds} alt="Innominds" />
             </div>
 
-            <div className="pr-inner-row">
-              <img src={ixigo} alt="Ixigo" />
-              <img src={jioLogo} alt="Jio" />
-              <img src={joshtechnologyLogo} alt="Josh Technology Group" />
-              <img src={larsentoubro} alt="Larsen Tourbo" />
-              <img src={maqsoftwareLogo} alt="MAQ Software" />
-            </div>
 
             <div className="pr-inner-row">
               <img src={mathworks} alt="Mathworks" />
@@ -213,23 +174,7 @@ const PastRecruiters = props => {
               <img src={paynearby} alt="Paynearby" />
             </div>
 
-            <div className="pr-inner-row">
-              <img src={paytmLogo} alt="Paytm" />
-              <img src={postmanLogo} alt="Postman" />
-              <img src={practoLogo} alt="Practo" />
-              <img src={pristyn} alt="pristyn" />
-              <img src={pubLogo} alt="Publicis Sapients" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={sabreLogo} alt="Sabre" />
-              <img src={samsungLogo} alt="Samsung" />
-              <img src={samsungsds} alt="Samsung sds" />
-              <img src={sawolabds} alt="Sawo Labs" />
-              <img src={servicenow} alt="Service Now" />
-            </div>
-
-            <div className="pr-inner-row">
+          <div className="pr-inner-row">
               <img src={ShipsyLogo} alt="shipsy" />
               <img src={sourcewiz} alt="SourceWiz" />
               <img src={tcsLogo} alt="TATA Consultancy Services" />
@@ -263,22 +208,7 @@ const PastRecruiters = props => {
       <Collapse isOpen={isOpen}>
         <div className="pr-inner-wrapper">
           <div className="pr-inner-box">
-            <div className="pr-inner-row">
-              <img src={directiLogo} alt="Directi" />
-              <img src={amazonLogo} alt="Amazon" />
-              <img src={googleLogo} alt="Google" />
-              <img src={Microsoft} alt="Microsoft" />
-              <img src={linkedinLogo} alt="LinkedIn" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={flipkartLogo} alt="Flipkart" />
-              <img src={vassarlabsLogo} alt="Vassar Labs" />
-              <img src={sabreLogo} alt="Sabre" />
-              <img src={xebiaLogo} alt="Xebia" />
-              <img src={goldmansachsLogo} alt="Goldman Sachs" />
-            </div>
-
+         
             <div className="pr-inner-row">
               <img src={infoedgeLogo} alt="Infoedge" />
               <img src={nineleapsLogo} alt="Nineleaps" />
@@ -312,14 +242,6 @@ const PastRecruiters = props => {
             </div>
 
             <div className="pr-inner-row">
-              <img src={ShipsyLogo} alt="shipsy" />
-              <img src={jdaLogo} alt="jda" />
-              <img src={maqsoftwareLogo} alt="MAQ Software" />
-              <img src={mindtickleLogo} alt="Mind Tickle" />
-              <img src={joshtechnologyLogo} alt="Josh Technology Group" />
-            </div>
-
-            <div className="pr-inner-row">
               <img src={paytmLogo} alt="Paytm" />
               <img src={hashedInLogo} alt="Hashedin" />
               <img src={americanExpressLogo} alt="American Express" />
@@ -333,30 +255,6 @@ const PastRecruiters = props => {
               <img src={sokratiLogo} alt="Sokrati" />
               <img src={tcsLogo} alt="TATA Consultancy Services" />
               <img src={vehanttechnologiesLogo} alt="Vehant Technologies" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={wiproLogo} alt="Wipro" />
-              <img src={wickedrideLogo} alt="Wicked Ride" />
-              <img src={polestarLogo} alt="Pole Star" />
-              <img src={kleanLogo} alt="Klean Homez" />
-              <img src={zomatologo} alt="Zomato" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={intelLogo} alt="Intel" />
-              <img src={dotnetLogo} alt="Dotnet" />
-              <img src={nutanixLogo} alt="Nutanix" />
-              <img src={postmanLogo} alt="Postman" />
-              <img src={buyhatkeLogo} alt="Buy Hatke" />
-            </div>
-
-            <div className="pr-inner-row">
-              <img src={tekionLogo} alt="Tekion" />
-              <img src={gradeupLogo} alt="Gradeup" />
-              <img src={ucLogo} alt="Urban Company" />
-              <img src={jioLogo} alt="Jio" />
-              <img src={pubLogo} alt="Publicis Sapients" />
             </div>
 
             <div className="pr-inner-row">
@@ -375,12 +273,6 @@ const PastRecruiters = props => {
               <img src={capdgeminiLogo} alt="Capgemini" />
             </div>
 
-            <div className="pr-inner-row">
-              <img src={gaugelogo} alt="Gauge Data Solutions" />
-              <img src={symphonylogo} alt="Symphony" />
-              <img src={tripockLogo} alt="Tripock" />
-              <img src={niLogo} alt="National Instruments" />
-            </div>
           </div>
         </div>
 

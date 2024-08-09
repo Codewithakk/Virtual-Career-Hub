@@ -1,18 +1,16 @@
-
-
 import React from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 
 const AdminDashboard = () => {
-  const data = [
-    { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-    { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-    { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-    { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-    { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-    { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-    { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+  const userData = [
+    { name: 'Jan', users: 40, companies: 24, students: 20, contacts: 32 },
+    { name: 'Feb', users: 30, companies: 13, students: 15, contacts: 25 },
+    { name: 'Mar', users: 20, companies: 18, students: 10, contacts: 21 },
+    { name: 'Apr', users: 27, companies: 39, students: 25, contacts: 30 },
+    { name: 'May', users: 18, companies: 48, students: 15, contacts: 40 },
+    { name: 'Jun', users: 23, companies: 38, students: 20, contacts: 38 },
+    { name: 'Jul', users: 34, companies: 43, students: 30, contacts: 42 },
   ];
 
   return (
@@ -27,35 +25,35 @@ const AdminDashboard = () => {
             <h3>USERS</h3>
             <BsFillArchiveFill className='card_icon'/>
           </div>
-          <h1>30</h1>
+          <h1>223</h1>
         </div>
         <div className='card'>
           <div className='card-inner'>
             <h3>COMPANIES</h3>
             <BsFillGrid3X3GapFill className='card_icon'/>
           </div>
-          <h1>12</h1>
+          <h1>250</h1>
         </div>
         <div className='card'>
           <div className='card-inner'>
             <h3>STUDENTS</h3>
             <BsPeopleFill className='card_icon'/>
           </div>
-          <h1>33</h1>
+          <h1>186</h1>
         </div>
         <div className='card'>
           <div className='card-inner'>
             <h3>CONTACTS</h3>
             <BsFillBellFill className='card_icon'/>
           </div>
-          <h1>42</h1>
+          <h1>249</h1>
         </div>
       </div>
 
       <div className='charts'>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={data}
+            data={userData}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -63,14 +61,14 @@ const AdminDashboard = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="pv" fill="#8884d8" />
-            <Bar dataKey="uv" fill="#82ca9d" />
+            <Bar dataKey="users" fill="#8884d8" name="Users" />
+            <Bar dataKey="companies" fill="#82ca9d" name="Companies" />
           </BarChart>
         </ResponsiveContainer>
 
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            data={data}
+            data={userData}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -78,8 +76,8 @@ const AdminDashboard = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="students" stroke="#8884d8" name="Students" />
+            <Line type="monotone" dataKey="contacts" stroke="#82ca9d" name="Contacts" />
           </LineChart>
         </ResponsiveContainer>
       </div>

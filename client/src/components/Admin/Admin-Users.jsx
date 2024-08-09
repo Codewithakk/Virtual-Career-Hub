@@ -51,7 +51,7 @@ export const AdminUsers = () => {
     return (
         <section className="admin-users-section">
             <div className="container">
-                <h1>Admin Users Data</h1>
+                <h1>Total Users</h1>
             </div>
             <div className="container admin-users">
                 <table>

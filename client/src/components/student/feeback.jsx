@@ -1,5 +1,5 @@
-// FeedbackForm.js
 import React, { useState } from 'react';
+
 
 const FeedbackForm = () => {
   const [formData, setFormData] = useState({
@@ -29,22 +29,45 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="feedback">
-      <img src="./src/assets/feedback.jpg" height= "300px" width="400px" alt="" className='feedback_img'/>
-      <form onSubmit={handleSubmit}>
+    <div className="feedback-form-container">
+      <div className="feedback-img-container">
+        <img src="./src/assets/feedback.jpg" alt="Feedback" className="feedback-img"/>
+      </div>
+      <form onSubmit={handleSubmit} className="feedback-form">
+        <h2>Feedback Form</h2>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="feedback">Feedback:</label>
-          <textarea id="feedback" name="feedback" value={formData.feedback} onChange={handleChange} required />
+          <textarea
+            id="feedback"
+            name="feedback"
+            value={formData.feedback}
+            onChange={handleChange}
+            required
+          />
         </div>
-        <button type="submit">Submit Feedback</button>
+        <button type="submit" className="submit-button">Submit Feedback</button>
       </form>
     </div>
   );

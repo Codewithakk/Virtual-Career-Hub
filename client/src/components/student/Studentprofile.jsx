@@ -80,47 +80,46 @@ function Profiledash() {
 
     const data = [
         {
-          name: 'Page A',
-          uv: 4000,
-          pv: 2400,
-          amt: 2400,
+          name: 'Jan',
+          offcampus: 40,
+          oncampus: 2,
         },
         {
-          name: 'Page B',
-          uv: 3000,
-          pv: 1398,
-          amt: 2210,
+          name: 'Feb',
+          offcampus: 30,
+          oncampus: 5,
+          
         },
         {
-          name: 'Page C',
-          uv: 2000,
-          pv: 9800,
-          amt: 2290,
+          name: 'March',
+          offcampus: 20,
+          oncampus: 2,
+          
         },
         {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
-          amt: 2000,
+          name: 'April',
+          offcampus: 50,
+          oncampus: 6,
+        
         },
         {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
-          amt: 2181,
+          name: 'May',
+          offcampus: 60,
+          oncampus: 11,
+        
         },
         {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
-          amt: 2500,
+          name: 'June',
+          offcampus:12,
+          oncampus: 3,
+        
         },
-        {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
-          amt: 2100,
-        },
+        // {
+        //   name: 'Page G',
+        //   offcampus: 3490,
+        //   oncampus: 4300,
+        //   amt: 2100,
+        // },
       ];
      
 
@@ -136,7 +135,7 @@ function Profiledash() {
                     <h3>Applied</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>30</h1>
+                <h1>24</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
@@ -150,11 +149,11 @@ function Profiledash() {
                     <h3>Rejected</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>3</h1>
+                <h1>6</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>selected</h3>
+                    <h3>Selected</h3>
                     <BsFillBellFill className='card_icon'/>
                 </div>
                 <h1>4</h1>
@@ -179,8 +178,8 @@ function Profiledash() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
+                <Bar dataKey="oncampus" fill="#8884d8" />
+                <Bar dataKey="offcampus" fill="#82ca9d" />
                 </BarChart>
             </ResponsiveContainer>
 
@@ -201,8 +200,8 @@ function Profiledash() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="offcampus" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="oncampus" stroke="#82ca9d" />
                 </LineChart>
             </ResponsiveContainer>
 

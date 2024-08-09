@@ -1,5 +1,41 @@
 .content {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings__select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  max-width: 400px;
+}
+
+.banner {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+
+
+
+.content {
+  display: flex;
   justify-content: space-around;
 }
 

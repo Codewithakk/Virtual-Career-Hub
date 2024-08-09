@@ -86,26 +86,29 @@
 
 // export default AddTeamMemberForm;
 // React code
-
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 const AddTeamMemberForm = ({ onAdd }) => {
-  const [name, setName] = useState('');
-  const [position, setPosition] = useState('');
-  const [bio, setBio] = useState('');
-  // const [image, setImage] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    position: '',
+    bio: ''
+  });
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('position', position);
-      formData.append('bio', bio);
-      // formData.append('image', image);
-
-      // Send form data including the image to the backend
       const response = await axios.post('http://localhost:5000/api/team-members', formData);
 
       if (!response.data) {
@@ -115,30 +118,33 @@ const AddTeamMemberForm = ({ onAdd }) => {
       onAdd(response.data); // Notify parent component about the new member
 
       // Clear the form fields
-      setName('');
-      setPosition('');
-      setBio('');
-      // setImage(null);
+      setFormData({
+        name: '',
+        position: '',
+        bio: ''
+      });
 
       // Show an alert to indicate successful submission
-      alert('Member added successfully!');
+      toast.success('Member added successfully!');
     } catch (error) {
       console.error('Error adding team member:', error);
-      alert(`Error adding team member: ${error.message}`);
+      setError(`Error adding team member: ${error.message}`);
     }
   };
 
   return (
     <div className="add-member-form">
       <h2>Add New Team Member</h2>
+      {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit} className='add-member'>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             required
           />
         </div>
@@ -147,8 +153,9 @@ const AddTeamMemberForm = ({ onAdd }) => {
           <input
             type="text"
             id="position"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            name="position"
+            value={formData.position}
+            onChange={handleChange}
             required
           />
         </div>
@@ -156,11 +163,13 @@ const AddTeamMemberForm = ({ onAdd }) => {
           <label htmlFor="bio">Bio:</label>
           <textarea
             id="bio"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            name="bio"
+            value={formData.bio}
+            onChange={handleChange}
             required
           />
         </div>
+        Upload Image:<input type="file" accept='image/*'/>
         <div className="form-group">
           <button type="submit">Add Member</button>
         </div>

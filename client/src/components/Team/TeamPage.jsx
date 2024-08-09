@@ -5,15 +5,15 @@ import './TeamPage.css';
 
 function convertToBase64(e) {
   console.log(e);
-  var reader=new FileReader();
+  var reader = new FileReader();
   reader.readAsDataURL(e.target.files[0]);
-  reader.onload = ()=>{
-   console.log(reader.result);
- };
- reader.onerror=error=>{
-   console.log("Error:",error);
- };
-  }
+  reader.onload = () => {
+    console.log(reader.result);
+  };
+  reader.onerror = (error) => {
+    console.log("Error:", error);
+  };
+}
 
 const TeamPage = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -31,18 +31,25 @@ const TeamPage = () => {
     }
   };
 
+  const handleViewMember = (member) => {
+    // Implement the logic to view the member details
+    console.log('Viewing member:', member);
+  };
+
   return (
     <div className="team-page">
       <h2>Meet Our Team</h2>
       <div className="team-members">
         {teamMembers.map((member, index) => (
-          <TeamMember
-            key={index}
-            name={member.name}
-            img
-            position={member.position}
-            bio={member.bio}
-          />
+          <div key={index} className="team-member">
+            <TeamMember
+              name={member.name}
+              img={member.img}
+              position={member.position}
+              bio={member.bio}
+            />
+            <button onClick={() => handleViewMember(member)}>View</button>
+          </div>
         ))}
       </div>
     </div>

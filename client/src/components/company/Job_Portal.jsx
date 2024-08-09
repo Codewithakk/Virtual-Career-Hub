@@ -61,47 +61,48 @@ function Job_Portal() {
 
   return (
     <>
-      <h4 >Add Job</h4>
+      <h4>Add Job</h4>
       <div className='addjob'>
-        
         <form onSubmit={onSubmit} className='add'>
-          <div className="column">
-            <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" value={formData.title} onChange={onChange} placeholder="Title" required />
+          <div className="form-columns">
+            <div className="column">
+              <label htmlFor="title">Title</label>
+              <input type="text" id="title" name="title" value={formData.title} onChange={onChange} placeholder="Title" required />
 
-            <label htmlFor="company">Company</label>
-            <input type="text" id="company" name="company" value={formData.company} onChange={onChange} placeholder="Company" required />
+              <label htmlFor="company">Company</label>
+              <input type="text" id="company" name="company" value={formData.company} onChange={onChange} placeholder="Company" required />
 
-            <label htmlFor="location">Location</label>
-            <input type="text" id="location" name="location" value={formData.location} onChange={onChange} placeholder="Location" />
+              <label htmlFor="location">Location</label>
+              <input type="text" id="location" name="location" value={formData.location} onChange={onChange} placeholder="Location" />
 
-            <label htmlFor="salary">Salary</label>
-            <input type="text" id="salary" name="salary" value={formData.salary} onChange={onChange} placeholder="Salary" />
+              <label htmlFor="salary">Salary</label>
+              <input type="text" id="salary" name="salary" value={formData.salary} onChange={onChange} placeholder="Salary" />
 
-            <label htmlFor="description">Description</label>
-            <textarea id="description" name="description" value={formData.description} onChange={onChange} placeholder="Description" />
-          </div>
-          <div className="column">
-            <label htmlFor="requirements">Requirements</label>
-            <input type="text" id="requirements" name="requirements" value={formData.requirements} onChange={onChange} placeholder="Requirements" />
+              <label htmlFor="description">Description</label>
+              <textarea id="description" name="description" value={formData.description} onChange={onChange} placeholder="Description" />
+            </div>
+            <div className="column">
+              <label htmlFor="requirements">Requirements</label>
+              <input type="text" id="requirements" name="requirements" value={formData.requirements} onChange={onChange} placeholder="Requirements" />
 
-            <label htmlFor="responsibilities">Responsibilities</label>
-            <input type="text" id="responsibilities" name="responsibilities" value={formData.responsibilities} onChange={onChange} placeholder="Responsibilities" />
+              <label htmlFor="responsibilities">Responsibilities</label>
+              <input type="text" id="responsibilities" name="responsibilities" value={formData.responsibilities} onChange={onChange} placeholder="Responsibilities" />
 
-            <label htmlFor="skills">Skills</label>
-            <input type="text" id="skills" name="skills" value={formData.skills} onChange={onChange} placeholder="Skills" />
+              <label htmlFor="skills">Skills</label>
+              <input type="text" id="skills" name="skills" value={formData.skills} onChange={onChange} placeholder="Skills" />
 
-            <label htmlFor="deadline">Deadline</label>
-            <input type="date" id="deadline" name="deadline" value={formData.deadline} onChange={onChange} placeholder="Deadline" />
+              <label htmlFor="deadline">Deadline</label>
+              <input type="date" id="deadline" name="deadline" value={formData.deadline} onChange={onChange} placeholder="Deadline" />
 
-            <label htmlFor="contactName">Contact Name</label>
-            <input type="text" id="contactName" name="contact.name" value={formData.contact.name} onChange={onChange} placeholder="Contact Name" />
+              <label htmlFor="contactName">Contact Name</label>
+              <input type="text" id="contactName" name="contact.name" value={formData.contact.name} onChange={onChange} placeholder="Contact Name" />
 
-            <label htmlFor="contactEmail">Contact Email</label>
-            <input type="email" id="contactEmail" name="contact.email" value={formData.contact.email} onChange={onChange} placeholder="Contact Email" />
+              <label htmlFor="contactEmail">Contact Email</label>
+              <input type="email" id="contactEmail" name="contact.email" value={formData.contact.email} onChange={onChange} placeholder="Contact Email" />
 
-            <label htmlFor="contactPhone">Contact Phone</label>
-            <input type="number" id="contactPhone" name="contact.phone" value={formData.contact.phone} onChange={onChange} placeholder="Contact Phone" />
+              <label htmlFor="contactPhone">Contact Phone</label>
+              <input type="number" id="contactPhone" name="contact.phone" value={formData.contact.phone} onChange={onChange} placeholder="Contact Phone" />
+            </div>
           </div>
           <div className="job-btn">
             <button type="submit">Submit</button>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import axios from "axios";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from  'D:/Placement cell/client/src/Home.jsx';
 import About from  './About';
@@ -58,20 +59,22 @@ import QuizPage from './Pages/Quizemain';
 
 function App() {
 
-  const [questions, setQuestions] = useState();
-  const [name, setName] = useState();
+  const [questions, setQuestions] = useState([]);
+  const [name, setName] = useState("");
   const [score, setScore] = useState(0);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
-    const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=10${
-        category && `&category=${category}`
-      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
-    );
-
-    setQuestions(data.results);
+    try {
+      const { data } = await axios.get(
+        `https://opentdb.com/api.php?amount=10${
+          category ? `&category=${category}` : ''
+        }${difficulty ? `&difficulty=${difficulty}` : ''}&type=multiple`
+      );
+      setQuestions(data.results);
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+    }
   };
-
   return (
     <>
     <BrowserRouter>
@@ -86,6 +89,7 @@ function App() {
   </Route>
       <Route path="/about" element={<About />} />
       <Route path="/recruiter" element={<Recruiter />} />
+      
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/admin_dashboard" element={<AdminDashboard />} /> */}
      
@@ -124,35 +128,34 @@ function App() {
           <Result name={name} score={score} />
           </Route>
         </Switch> */}
-  <Route path='/quiz' element={<QuizPage/>}></Route>
-      
-  <Route
-    path="quiz/homepage"
-    element={
-      <QuizeHome
-        name={name}
-        setName={setName}
-        fetchQuestions={fetchQuestions}
-      />
-    }
-    exact
-  />
-  <Route
-    path="quiz/quiz"
-    element={
-      <Quiz
-        name={name}
-        questions={questions}
-        score={score}
-        setScore={setScore}
-        setQuestions={setQuestions}
-      />
-    }
-  />
-  <Route
-    path="quiz/result"
-    element={<Result name={name} score={score} />}
-  />
+   <Route path='/quiz' element={<QuizPage />} />
+        <Route
+          path="/quiz/homepage"
+          element={
+            <QuizeHome
+              name={name}
+              setName={setName}
+              fetchQuestions={fetchQuestions}
+            />
+          }
+        />
+        <Route
+          path="/quiz/quiz"
+          element={
+            <Quiz
+              name={name}
+              questions={questions}
+              score={score}
+              setScore={setScore}
+              setQuestions={setQuestions}
+            />
+          }
+        />
+        <Route
+          path="/quiz/result"
+          element={<Result name={name} score={score} />}
+        />
+  
       {/* </div> */}
       <Route path='/resume_builder' element={<Body/>} />   
       <Route path='/job_portal' element={<JobFetch />} />

@@ -44,6 +44,33 @@ const Calendar = () => {
         }
     };
 
+    const handleDelete = async (eventId) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/events/${eventId}`);
+            fetchEvents(); // Refresh the events list after deleting event
+        } catch (error) {
+            console.error('Error deleting event:', error);
+        }
+    };
+
+    const handleEdit = (eventId) => {
+        // Implement the logic to edit the event
+        console.log('Editing event:', eventId);
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true // Set to true for 12-hour format
+        };
+        return date.toLocaleDateString('en-US', options);
+    };
+
     return (
         <div>
             <h4>Calendar Events</h4>
@@ -56,15 +83,16 @@ const Calendar = () => {
             </form>
             <ul>
                 {Array.isArray(events) && events.map((event) => (
-                <div className="Card">
-                    <li key={event._id}>
-                        <strong>{event.title}</strong> 
-                         {event.description} 
-                         {event.start} to {event.end}
-                    </li>
-                </div>
-                )
-                )}
+                    <div className="Card" key={event._id}>
+                        <li>
+                            <strong>{event.title}</strong><br />
+                            <strong>{event.description}</strong><br />
+                            <strong>Date: </strong>{formatDate(event.start)} to {formatDate(event.end)}<br />
+                            <button onClick={() => handleEdit(event._id)}>Edit</button>
+                            <button onClick={() => handleDelete(event._id)}>Delete</button>
+                        </li>
+                    </div>
+                ))}
             </ul>
         </div>
     );

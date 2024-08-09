@@ -29,10 +29,10 @@ function Company_dashboard() {
             <NavLink to="/company/jobs_view" activeClassName="active-link">Job Posted</NavLink>
           </li>
           <li className='sidebar-list-item'>
-            <NavLink to="/company/student_data" activeClassName="active-link">Student Applied</NavLink>
+            <NavLink to="/company/student_data" activeClassName="active-link">Scheduled interview</NavLink>
           </li>
           <li className='sidebar-list-item'>
-            <NavLink to="" activeClassName="active-link">Selected Students</NavLink>
+            <NavLink to="" activeClassName="active-link">Students</NavLink>
           </li>
         </ul>
       </aside>

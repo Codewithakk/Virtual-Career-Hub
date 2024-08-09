@@ -128,11 +128,11 @@
 //         </section>
 //     );
 // }
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+
 
 export default function Register() {
     const [user, setUser] = useState({
@@ -175,7 +175,7 @@ export default function Register() {
                 navigate("/");
             } else {
                 const errorData = await response.json();
-                toast.error(errorData.message || "Registration failed");
+                toast.error(errorData.extraDetails || "Registration failed");
             }
         } catch (error) {
             console.error("Error in Register page:", error);
@@ -195,7 +195,7 @@ export default function Register() {
                             <h1 className="main-heading mb-3">Registration</h1>
                             <form onSubmit={handleSubmit}>
                                 <div>
-                                    <label htmlFor="username">Username:</label>
+                                    <label htmlFor="username" className="large-label">Username:</label>
                                     <input
                                         type="text"
                                         name="username"
@@ -204,11 +204,12 @@ export default function Register() {
                                         required
                                         autoComplete="off"
                                         value={user.username}
-                                        onChange={handleChange} // Updated to handleChange
+                                        onChange={handleChange}
+                                        className="large-input"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email">Email:</label>
+                                    <label htmlFor="email" className="large-label">Email:</label>
                                     <input
                                         type="email"
                                         name="email"
@@ -217,11 +218,12 @@ export default function Register() {
                                         required
                                         autoComplete="off"
                                         value={user.email}
-                                        onChange={handleChange} // Updated to handleChange
+                                        onChange={handleChange}
+                                        className="large-input"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="phone">Phone:</label>
+                                    <label htmlFor="phone" className="large-label">Phone:</label>
                                     <input
                                         type="tel"
                                         name="phone"
@@ -230,11 +232,12 @@ export default function Register() {
                                         required
                                         autoComplete="off"
                                         value={user.phone}
-                                        onChange={handleChange} // Updated to handleChange
+                                        onChange={handleChange}
+                                        className="large-input"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="password">Password:</label>
+                                    <label htmlFor="password" className="large-label">Password:</label>
                                     <input
                                         type="password"
                                         name="password"
@@ -243,17 +246,18 @@ export default function Register() {
                                         required
                                         autoComplete="off"
                                         value={user.password}
-                                        onChange={handleChange} // Updated to handleChange
+                                        onChange={handleChange}
+                                        className="large-input"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="role">Role:</label>
+                                    <label htmlFor="role" className="large-label">Role:</label>
                                     <select
-                                        className="Role"
+                                        className="Role large-input"
                                         name="role"
                                         id="role"
                                         value={user.role}
-                                        onChange={handleChange} // Updated to handleChange
+                                        onChange={handleChange}
                                     >
                                         <option value="student">Student</option>
                                         <option value="admin">Admin</option>

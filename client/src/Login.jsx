@@ -70,12 +70,13 @@ export default function Login() {
                                 <br />
                                 <form onSubmit={handleSubmit}>
                                     <div>
-                                        <label htmlFor="email">Email:</label>
+                                        <label htmlFor="email"  className="large-label">Email:</label>
                                         <input
                                             type="email"
                                             name="email"
                                             placeholder="Enter Your email"
                                             id="email"
+                                            className="large-input"
                                             required
                                             autoComplete="off"
                                             value={user.email}
@@ -83,12 +84,13 @@ export default function Login() {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="password">Password:</label>
+                                        <label htmlFor="password"  className="large-label">Password:</label>
                                         <input
                                             type="password"
                                             name="password"
                                             placeholder="Password"
                                             id="password"
+                                            className="large-input"
                                             required
                                             autoComplete="off"
                                             value={user.password}

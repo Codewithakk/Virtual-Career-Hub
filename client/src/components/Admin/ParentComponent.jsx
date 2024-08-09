@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddTeamMemberForm from './Teamadd';
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 const ParentComponent = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -36,10 +37,10 @@ const ParentComponent = () => {
 
       setTeamMembers([...teamMembers, response.data]);
       // Show an alert to indicate successful submission
-      alert('Member added successfully!');
+      toast.success('Member added successfully!');
     } catch (error) {
       console.error('Error adding team member:', error);
-      alert(`Error adding team member: ${error.message}`);
+      toast.error(`Error adding team member: ${error.message}`);
     }
   };
 
@@ -51,16 +52,16 @@ const ParentComponent = () => {
       await axios.delete(`http://localhost:5000/api/team-members/${memberId}`);
       setTeamMembers(teamMembers.filter(member => member._id !== memberId));
       // Show an alert to indicate successful deletion
-      alert('Member deleted successfully!');
+      toast.success('Member deleted successfully!');
     } catch (error) {
       console.error('Error deleting team member:', error);
-      alert(`Error deleting team member: ${error.message}`);
+      toast.confirm(`Error deleting team member: ${error.message}`);
     }
   };
 
   const handleUpdateMember = async () => {
     if (!selectedMember || !updatedName || !updatedPosition || !updatedBio) {
-      alert('Please select a member and provide updated information.');
+      toast.error('Please select a member and provide updated information.');
       return;
     }
 
@@ -73,10 +74,10 @@ const ParentComponent = () => {
 
       fetchTeamMembers();
       // Show an alert to indicate successful update
-      alert('Member updated successfully!');
+      toast.success('Member updated successfully!');
     } catch (error) {
       console.error('Error updating team member:', error);
-      alert(`Error updating team member: ${error.message}`);
+      toast.error(`Error updating team member: ${error.message}`);
     }
   };
 
